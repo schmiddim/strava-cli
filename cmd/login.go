@@ -123,5 +123,5 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func getScopes() []string {
-	return []string{"activity:write,profile:read_all"}
+	return []string{"activity:write,profile:read_all,activity:read_all"}
 }
