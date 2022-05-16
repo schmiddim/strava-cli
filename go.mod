@@ -3,7 +3,7 @@ module github.com/alexhokl/strava-cli
 go 1.17
 
 require (
-	github.com/alexhokl/helper v0.0.21
+	github.com/alexhokl/helper v0.0.37
 	github.com/antihax/optional v1.0.0
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/spf13/cobra v1.2.1
