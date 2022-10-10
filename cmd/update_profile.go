@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -24,32 +24,41 @@ import (
 	"github.com/spf13/viper"
 )
 
-// profileCmd represents the profile command
-var profileCmd = &cobra.Command{
+// updateProfileCmd represents the update weight command
+var updateProfileCmd = &cobra.Command{
 	Use:   "profile",
-	Short: "Show profile of the current user",
-	RunE:  runProfile,
+	Short: "Update profile of the current user",
+	RunE:  runUpdateProfile,
 }
+
+type updateProfileOptions struct {
+	weight float32
+}
+
+var updateProfileOpts updateProfileOptions
+
 
 func init() {
-	rootCmd.AddCommand(profileCmd)
+	updateCmd.AddCommand(updateProfileCmd)
+
+	flags := updateProfileCmd.Flags()
+	flags.Float32VarP(&updateProfileOpts.weight, "weight", "w", 0, "Weight in kg")
+	updateProfileCmd.MarkFlagRequired("weight")
 }
 
-func runProfile(cmd *cobra.Command, args []string) error {
+func runUpdateProfile(_ *cobra.Command, _ []string) error {
 	accessToken := viper.GetString("token")
 	auth := context.WithValue(context.Background(), swagger.ContextAccessToken, accessToken)
 	config := swagger.NewConfiguration()
 	client := swagger.NewAPIClient(config)
-	profile, _, err := client.AthletesApi.GetLoggedInAthlete(auth)
+
+	fmt.Printf("About to update to %f kg", updateProfileOpts.weight)
+	athlete, _, err := client.AthletesApi.UpdateLoggedInAthlete(auth, updateProfileOpts.weight)
 	if err != nil {
 		return err
 	}
-	fmt.Printf(
-		"Hi %s!\nYour user ID is %d\nYour FTP is %dW with weight %fkg\n",
-		profile.Firstname,
-		profile.Id,
-		profile.Ftp,
-		profile.Weight,
-	)
+
+	fmt.Printf("Weight updated to %f kg", athlete.Weight)
+
 	return nil
 }

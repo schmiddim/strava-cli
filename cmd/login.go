@@ -48,7 +48,7 @@ func init() {
 	rootCmd.AddCommand(loginCmd)
 }
 
-func runLogin(cmd *cobra.Command, args []string) error {
+func runLogin(_ *cobra.Command, _ []string) error {
 	clientID := viper.GetString("clientId")
 	clientSecret := viper.GetString("clientSecret")
 	if clientID == "" || clientSecret == "" {
@@ -79,5 +79,5 @@ func runLogin(cmd *cobra.Command, args []string) error {
 }
 
 func getScopes() []string {
-	return []string{"activity:write,profile:read_all,activity:read_all"}
+	return []string{"activity:write,profile:read_all,activity:read_all,profile:write"}
 }

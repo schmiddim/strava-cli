@@ -1,5 +1,5 @@
 /*
-Copyright © 2021 NAME HERE <EMAIL ADDRESS>
+Copyright © 2022 NAME HERE <EMAIL ADDRESS>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -22,15 +22,15 @@ import (
 )
 
 // listCmd represents the list command
-var listCmd = &cobra.Command{
-	Use:   "list",
-	Short: "List subjects of subcommand",
+var updateCmd = &cobra.Command{
+	Use:   "update",
+	Short: "Update subject in the subcommand",
 	Run: func(_ *cobra.Command, _ []string) {
-		fmt.Println("Please specify the subject to be listed")
+		fmt.Println("Please specify the subject to be updated")
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(listCmd)
+	rootCmd.AddCommand(updateCmd)
 }
 
