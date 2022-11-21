@@ -32,7 +32,6 @@ type loginOptions struct {
 }
 
 var (
-	conf      *oauth2.Config
 	ctx       context.Context
 	loginOpts loginOptions
 )
