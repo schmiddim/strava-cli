@@ -3,7 +3,7 @@ module github.com/alexhokl/strava-cli
 go 1.17
 
 require (
-	github.com/alexhokl/helper v0.0.47
+	github.com/alexhokl/helper v0.0.63
 	github.com/antihax/optional v1.0.0
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/spf13/cobra v1.4.0
@@ -35,3 +35,5 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.0 // indirect
 )
+
+// replace github.com/alexhokl/helper => ../helper

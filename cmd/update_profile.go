@@ -19,9 +19,9 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/alexhokl/helper/authhelper"
 	"github.com/alexhokl/strava-cli/swagger"
 	"github.com/spf13/cobra"
-	"github.com/spf13/viper"
 )
 
 // updateProfileCmd represents the update weight command
@@ -47,8 +47,11 @@ func init() {
 }
 
 func runUpdateProfile(_ *cobra.Command, _ []string) error {
-	accessToken := viper.GetString("token")
-	auth := context.WithValue(context.Background(), swagger.ContextAccessToken, accessToken)
+	savedToken, err := authhelper.LoadTokenFromViper()
+	if err != nil {
+		return err
+	}
+	auth := context.WithValue(context.Background(), swagger.ContextAccessToken, savedToken.AccessToken)
 	config := swagger.NewConfiguration()
 	client := swagger.NewAPIClient(config)
 
