@@ -9,18 +9,18 @@ import (
 
 	"github.com/alexhokl/helper/authhelper"
 	"github.com/alexhokl/helper/cli"
+	"github.com/alexhokl/helper/strava"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"golang.org/x/oauth2"
 )
 
 var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "strava-cli",
-	Short: "A CLI application interacting with Strava API",
-	SilenceUsage: true,
+	Use:               "strava-cli",
+	Short:             "A CLI application interacting with Strava API",
+	SilenceUsage:      true,
 	PersistentPreRunE: validateToken,
 }
 
@@ -80,10 +80,7 @@ func getOAuthConfigurationFromViper() (*authhelper.OAuthConfig, error) {
 		Scopes:       getScopes(),
 		RedirectURI:  "/callback",
 		Port:         port,
-		Endpoint: oauth2.Endpoint{
-			AuthURL:  fmt.Sprintf("%s/oauth/authorize", apiURL),
-			TokenURL: fmt.Sprintf("%s/oauth/token", apiURL),
-		},
+		Endpoint:     strava.GetOAuthEndpoint(),
 	}
 	return config, nil
 }

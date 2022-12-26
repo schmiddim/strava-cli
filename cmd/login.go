@@ -25,7 +25,6 @@ import (
 )
 
 const port = 9990
-const apiURL = "https://www.strava.com"
 
 type loginOptions struct {
 }

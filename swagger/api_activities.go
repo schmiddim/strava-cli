@@ -1,4 +1,3 @@
-
 /*
  * Strava API v3
  *
@@ -12,12 +11,13 @@ package swagger
 
 import (
 	"context"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"strings"
-	"fmt"
 	"time"
+
 	"github.com/antihax/optional"
 )
 
@@ -45,7 +45,7 @@ Creates a manual activity for an athlete, requires activity:write scope.
 @return DetailedActivity
 */
 
-type ActivitiesApiCreateActivityOpts struct { 
+type ActivitiesApiCreateActivityOpts struct {
 	Description optional.String
 	Distance optional.Float32
 	Trainer optional.Int32
@@ -128,7 +128,7 @@ func (a *ActivitiesApiService) CreateActivity(ctx context.Context, name string, 
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 201 {
 			var v DetailedActivity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -139,7 +139,7 @@ func (a *ActivitiesApiService) CreateActivity(ctx context.Context, name string, 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 0 {
 			var v Fault
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -150,7 +150,7 @@ func (a *ActivitiesApiService) CreateActivity(ctx context.Context, name string, 
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
@@ -168,7 +168,7 @@ Returns the given activity that is owned by the authenticated athlete. Requires 
 @return DetailedActivity
 */
 
-type ActivitiesApiGetActivityByIdOpts struct { 
+type ActivitiesApiGetActivityByIdOpts struct {
 	IncludeAllEfforts optional.Bool
 }
 
@@ -236,7 +236,7 @@ func (a *ActivitiesApiService) GetActivityById(ctx context.Context, id int64, lo
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v DetailedActivity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -247,7 +247,7 @@ func (a *ActivitiesApiService) GetActivityById(ctx context.Context, id int64, lo
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 0 {
 			var v Fault
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -258,7 +258,7 @@ func (a *ActivitiesApiService) GetActivityById(ctx context.Context, id int64, lo
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
@@ -277,7 +277,7 @@ Returns the comments on the given activity. Requires activity:read for Everyone 
 @return []Comment
 */
 
-type ActivitiesApiGetCommentsByActivityIdOpts struct { 
+type ActivitiesApiGetCommentsByActivityIdOpts struct {
 	Page optional.Int32
 	PerPage optional.Int32
 }
@@ -349,7 +349,7 @@ func (a *ActivitiesApiService) GetCommentsByActivityId(ctx context.Context, id i
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v []Comment
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -360,7 +360,7 @@ func (a *ActivitiesApiService) GetCommentsByActivityId(ctx context.Context, id i
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 0 {
 			var v Fault
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -371,7 +371,7 @@ func (a *ActivitiesApiService) GetCommentsByActivityId(ctx context.Context, id i
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
@@ -390,7 +390,7 @@ Returns the athletes who kudoed an activity identified by an identifier. Require
 @return []SummaryAthlete
 */
 
-type ActivitiesApiGetKudoersByActivityIdOpts struct { 
+type ActivitiesApiGetKudoersByActivityIdOpts struct {
 	Page optional.Int32
 	PerPage optional.Int32
 }
@@ -462,7 +462,7 @@ func (a *ActivitiesApiService) GetKudoersByActivityId(ctx context.Context, id in
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v []SummaryAthlete
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -473,7 +473,7 @@ func (a *ActivitiesApiService) GetKudoersByActivityId(ctx context.Context, id in
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 0 {
 			var v Fault
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -484,7 +484,7 @@ func (a *ActivitiesApiService) GetKudoersByActivityId(ctx context.Context, id in
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
@@ -560,7 +560,7 @@ func (a *ActivitiesApiService) GetLapsByActivityId(ctx context.Context, id int64
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v []Lap
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -571,7 +571,7 @@ func (a *ActivitiesApiService) GetLapsByActivityId(ctx context.Context, id int64
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 0 {
 			var v Fault
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -582,7 +582,7 @@ func (a *ActivitiesApiService) GetLapsByActivityId(ctx context.Context, id int64
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
@@ -602,7 +602,7 @@ Returns the activities of an athlete for a specific identifier. Requires activit
 @return []SummaryActivity
 */
 
-type ActivitiesApiGetLoggedInAthleteActivitiesOpts struct { 
+type ActivitiesApiGetLoggedInAthleteActivitiesOpts struct {
 	Before optional.Int32
 	After optional.Int32
 	Page optional.Int32
@@ -681,7 +681,7 @@ func (a *ActivitiesApiService) GetLoggedInAthleteActivities(ctx context.Context,
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v []SummaryActivity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -692,7 +692,7 @@ func (a *ActivitiesApiService) GetLoggedInAthleteActivities(ctx context.Context,
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 0 {
 			var v Fault
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -703,7 +703,7 @@ func (a *ActivitiesApiService) GetLoggedInAthleteActivities(ctx context.Context,
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
@@ -779,7 +779,7 @@ func (a *ActivitiesApiService) GetZonesByActivityId(ctx context.Context, id int6
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v []ActivityZone
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -790,7 +790,7 @@ func (a *ActivitiesApiService) GetZonesByActivityId(ctx context.Context, id int6
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 0 {
 			var v Fault
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -801,7 +801,7 @@ func (a *ActivitiesApiService) GetZonesByActivityId(ctx context.Context, id int6
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
@@ -814,12 +814,12 @@ Updates the given activity that is owned by the authenticated athlete. Requires 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The identifier of the activity.
  * @param optional nil or *ActivitiesApiUpdateActivityByIdOpts - Optional Parameters:
-     * @param "Body" (optional.Interface of UpdatableActivity) - 
+     * @param "Body" (optional.Interface of UpdatableActivity) -
 
 @return DetailedActivity
 */
 
-type ActivitiesApiUpdateActivityByIdOpts struct { 
+type ActivitiesApiUpdateActivityByIdOpts struct {
 	Body optional.Interface
 }
 
@@ -859,7 +859,7 @@ func (a *ActivitiesApiService) UpdateActivityById(ctx context.Context, id int64,
 	}
 	// body params
 	if localVarOptionals != nil && localVarOptionals.Body.IsSet() {
-		
+
 		localVarOptionalBody, localVarOptionalBodyok := localVarOptionals.Body.Value().(UpdatableActivity)
 		if !localVarOptionalBodyok {
 				return localVarReturnValue, nil, reportError("body should be UpdatableActivity")
@@ -893,7 +893,7 @@ func (a *ActivitiesApiService) UpdateActivityById(ctx context.Context, id int64,
 			body: localVarBody,
 			error: localVarHttpResponse.Status,
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 200 {
 			var v DetailedActivity
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -904,7 +904,7 @@ func (a *ActivitiesApiService) UpdateActivityById(ctx context.Context, id int64,
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		if localVarHttpResponse.StatusCode == 0 {
 			var v Fault
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
@@ -915,7 +915,7 @@ func (a *ActivitiesApiService) UpdateActivityById(ctx context.Context, id int64,
 				newErr.model = v
 				return localVarReturnValue, localVarHttpResponse, newErr
 		}
-		
+
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
 
