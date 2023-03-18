@@ -37,12 +37,12 @@ strava-cli list segment-effort --id 631238
 To Mac
 
 ```sh
-strava-cli completion bash > /opt/homebrew/etc/bash_completion.d/strava-cli
+make completion-mac
 ```
 
 To Linux
 
 ```sh
-strava-cli completion bash | sudo tee /etc/bash_completion.d/strava-cli
+make completion-linux
 ```
 

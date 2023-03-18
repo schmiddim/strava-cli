@@ -102,7 +102,7 @@ func (a *ActivitiesApiService) CreateActivity(ctx context.Context, name string, 
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
@@ -207,7 +207,7 @@ func (a *ActivitiesApiService) GetActivityById(ctx context.Context, id int64, lo
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
@@ -327,7 +327,7 @@ func (a *ActivitiesApiService) GetCommentsByActivityId(ctx context.Context, id i
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
@@ -437,7 +437,7 @@ func (a *ActivitiesApiService) GetKudoersByActivityId(ctx context.Context, id in
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
@@ -532,7 +532,7 @@ func (a *ActivitiesApiService) GetLapsByActivityId(ctx context.Context, id int64
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
@@ -650,7 +650,7 @@ func (a *ActivitiesApiService) GetLoggedInAthleteActivities(ctx context.Context,
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
@@ -745,7 +745,7 @@ func (a *ActivitiesApiService) GetZonesByActivityId(ctx context.Context, id int6
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
@@ -786,7 +786,7 @@ Updates the given activity that is owned by the authenticated athlete. Requires 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id The identifier of the activity.
  * @param optional nil or *ActivitiesApiUpdateActivityByIdOpts - Optional Parameters:
-     * @param "Body" (optional.Interface of UpdatableActivity) - 
+     * @param "Body" (optional.Interface of UpdatableActivity) -
 @return DetailedActivity
 */
 
@@ -812,7 +812,7 @@ func (a *ActivitiesApiService) UpdateActivityById(ctx context.Context, id int64,
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"*/*"}
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -830,7 +830,7 @@ func (a *ActivitiesApiService) UpdateActivityById(ctx context.Context, id int64,
 	}
 	// body params
 	if localVarOptionals != nil && localVarOptionals.Body.IsSet() {
-		
+
 		localVarOptionalBody:= localVarOptionals.Body.Value()
 		localVarPostBody = &localVarOptionalBody
 	}
@@ -853,7 +853,7 @@ func (a *ActivitiesApiService) UpdateActivityById(ctx context.Context, id int64,
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
