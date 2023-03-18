@@ -82,7 +82,7 @@ func (a *AthletesApiService) GetLoggedInAthlete(ctx context.Context) (DetailedAt
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
@@ -175,7 +175,7 @@ func (a *AthletesApiService) GetLoggedInAthleteZones(ctx context.Context) (Zones
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
@@ -270,7 +270,7 @@ func (a *AthletesApiService) GetStats(ctx context.Context, id int64) (ActivitySt
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
@@ -322,7 +322,7 @@ func (a *AthletesApiService) UpdateLoggedInAthlete(ctx context.Context, weight f
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/athlete"
+	localVarPath := a.client.cfg.BasePath + "/athlete?weight={weight}"
 	localVarPath = strings.Replace(localVarPath, "{"+"weight"+"}", fmt.Sprintf("%v", weight), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -365,7 +365,7 @@ func (a *AthletesApiService) UpdateLoggedInAthlete(ctx context.Context, weight f
 	if localVarHttpResponse.StatusCode < 300 {
 		// If we succeed, return the data, otherwise pass on to decode error.
 		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil { 
+		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, err
 		}
 	}
