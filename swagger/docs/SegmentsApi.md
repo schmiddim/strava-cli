@@ -1,4 +1,4 @@
-# \SegmentsApi
+# {{classname}}
 
 All URIs are relative to *https://www.strava.com/api/v3*
 
@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**GetLoggedInAthleteStarredSegments**](SegmentsApi.md#GetLoggedInAthleteStarredSegments) | **Get** /segments/starred | List Starred Segments
 [**GetSegmentById**](SegmentsApi.md#GetSegmentById) | **Get** /segments/{id} | Get Segment
 [**StarSegment**](SegmentsApi.md#StarSegment) | **Put** /segments/{id}/starred | Star Segment
-
 
 # **ExploreSegments**
 > ExplorerResponse ExploreSegments(ctx, bounds, optional)
@@ -26,7 +25,6 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a SegmentsApiExploreSegmentsOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
@@ -64,7 +62,6 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a SegmentsApiGetLoggedInAthleteStarredSegmentsOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **optional.Int32**| Page number. Defaults to 1. | 
@@ -114,7 +111,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **StarSegment**
-> DetailedSegment StarSegment(ctx, id, starred)
+> DetailedSegment StarSegment(ctx, starred, id)
 Star Segment
 
 Stars/Unstars the given segment for the authenticated athlete. Requires profile:write scope.
@@ -124,8 +121,8 @@ Stars/Unstars the given segment for the authenticated athlete. Requires profile:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **starred** | **bool**|  | 
   **id** | **int64**| The identifier of the segment to star. | 
-  **starred** | **bool**| If true, star the segment; if false, unstar the segment. | [default to false]
 
 ### Return type
 
@@ -137,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

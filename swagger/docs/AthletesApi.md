@@ -1,4 +1,4 @@
-# \AthletesApi
+# {{classname}}
 
 All URIs are relative to *https://www.strava.com/api/v3*
 
@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**GetLoggedInAthleteZones**](AthletesApi.md#GetLoggedInAthleteZones) | **Get** /athlete/zones | Get Zones
 [**GetStats**](AthletesApi.md#GetStats) | **Get** /athletes/{id}/stats | Get Athlete Stats
 [**UpdateLoggedInAthlete**](AthletesApi.md#UpdateLoggedInAthlete) | **Put** /athlete | Update Athlete
-
 
 # **GetLoggedInAthlete**
 > DetailedAthlete GetLoggedInAthlete(ctx, )
@@ -109,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

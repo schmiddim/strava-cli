@@ -1,4 +1,4 @@
-# \StreamsApi
+# {{classname}}
 
 All URIs are relative to *https://www.strava.com/api/v3*
 
@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**GetRouteStreams**](StreamsApi.md#GetRouteStreams) | **Get** /routes/{id}/streams | Get Route Streams
 [**GetSegmentEffortStreams**](StreamsApi.md#GetSegmentEffortStreams) | **Get** /segment_efforts/{id}/streams | Get Segment Effort Streams
 [**GetSegmentStreams**](StreamsApi.md#GetSegmentStreams) | **Get** /segments/{id}/streams | Get Segment Streams
-
 
 # **GetActivityStreams**
 > StreamSet GetActivityStreams(ctx, id, keys, keyByType)

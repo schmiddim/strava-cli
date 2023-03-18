@@ -1,4 +1,4 @@
-# \ClubsApi
+# {{classname}}
 
 All URIs are relative to *https://www.strava.com/api/v3*
 
@@ -10,9 +10,8 @@ Method | HTTP request | Description
 [**GetClubMembersById**](ClubsApi.md#GetClubMembersById) | **Get** /clubs/{id}/members | List Club Members
 [**GetLoggedInAthleteClubs**](ClubsApi.md#GetLoggedInAthleteClubs) | **Get** /athlete/clubs | List Athlete Clubs
 
-
 # **GetClubActivitiesById**
-> []SummaryActivity GetClubActivitiesById(ctx, id, optional)
+> []ClubActivity GetClubActivitiesById(ctx, id, optional)
 List Club Activities
 
 Retrieve recent activities from members of a specific club. The authenticated athlete must belong to the requested club in order to hit this endpoint. Pagination is supported. Athlete profile visibility is respected for all activities.
@@ -27,7 +26,6 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ClubsApiGetClubActivitiesByIdOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
@@ -36,7 +34,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]SummaryActivity**](SummaryActivity.md)
+[**[]ClubActivity**](ClubActivity.md)
 
 ### Authorization
 
@@ -65,7 +63,6 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ClubsApiGetClubAdminsByIdOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
@@ -116,7 +113,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetClubMembersById**
-> []SummaryAthlete GetClubMembersById(ctx, id, optional)
+> []ClubAthlete GetClubMembersById(ctx, id, optional)
 List Club Members
 
 Returns a list of the athletes who are members of a given club.
@@ -131,7 +128,6 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ClubsApiGetClubMembersByIdOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
@@ -140,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]SummaryAthlete**](SummaryAthlete.md)
+[**[]ClubAthlete**](ClubAthlete.md)
 
 ### Authorization
 
@@ -168,7 +164,6 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ClubsApiGetLoggedInAthleteClubsOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **optional.Int32**| Page number. Defaults to 1. | 

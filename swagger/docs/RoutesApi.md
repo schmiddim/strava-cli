@@ -1,4 +1,4 @@
-# \RoutesApi
+# {{classname}}
 
 All URIs are relative to *https://www.strava.com/api/v3*
 
@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**GetRouteAsTCX**](RoutesApi.md#GetRouteAsTCX) | **Get** /routes/{id}/export_tcx | Export Route TCX
 [**GetRouteById**](RoutesApi.md#GetRouteById) | **Get** /routes/{id} | Get Route
 [**GetRoutesByAthleteId**](RoutesApi.md#GetRoutesByAthleteId) | **Get** /athletes/{id}/routes | List Athlete Routes
-
 
 # **GetRouteAsGPX**
 > GetRouteAsGPX(ctx, id)
@@ -109,7 +108,6 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a RoutesApiGetRoutesByAthleteIdOpts struct
-
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **optional.Int32**| Page number. Defaults to 1. | 

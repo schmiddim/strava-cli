@@ -1,11 +1,10 @@
-# \GearsApi
+# {{classname}}
 
 All URIs are relative to *https://www.strava.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetGearById**](GearsApi.md#GetGearById) | **Get** /gear/{id} | Get Equipment
-
 
 # **GetGearById**
 > DetailedGear GetGearById(ctx, id)

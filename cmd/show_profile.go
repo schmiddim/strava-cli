@@ -48,9 +48,8 @@ func runShowProfile(_ *cobra.Command, _ []string) error {
 		return err
 	}
 	fmt.Printf(
-		"Hi %s!\nYour user ID is %d\nYour FTP is %dW with weight %fkg\n",
+		"Hi %s!\nYour FTP is %dW with weight %fkg\n",
 		profile.Firstname,
-		profile.Id,
 		profile.Ftp,
 		profile.Weight,
 	)
