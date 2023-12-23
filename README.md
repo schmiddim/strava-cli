@@ -46,3 +46,14 @@ To Linux
 make completion-linux
 ```
 
+### To generate code to talk to Strava API
+
+```sh
+git clone https://github.com/swagger-api/swagger-codegen
+cd swagger-codegen
+git checkout master
+./run-in-docker.sh mvn package
+./run-in-docker.sh generate -i https://developers.strava.com/swagger/swagger.json -l go -o generated/go
+rm -rf ../strava-cli/swagger
+mv generated/go ../strava-cli/swagger
+```
