@@ -1,4 +1,4 @@
-# {{classname}}
+# \ClubsApi
 
 All URIs are relative to *https://www.strava.com/api/v3*
 
@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**GetClubById**](ClubsApi.md#GetClubById) | **Get** /clubs/{id} | Get Club
 [**GetClubMembersById**](ClubsApi.md#GetClubMembersById) | **Get** /clubs/{id}/members | List Club Members
 [**GetLoggedInAthleteClubs**](ClubsApi.md#GetLoggedInAthleteClubs) | **Get** /athlete/clubs | List Athlete Clubs
+
 
 # **GetClubActivitiesById**
 > []ClubActivity GetClubActivitiesById(ctx, id, optional)
@@ -26,6 +27,7 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ClubsApiGetClubActivitiesByIdOpts struct
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
@@ -63,6 +65,7 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ClubsApiGetClubAdminsByIdOpts struct
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
@@ -128,6 +131,7 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ClubsApiGetClubMembersByIdOpts struct
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
@@ -164,6 +168,7 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ClubsApiGetLoggedInAthleteClubsOpts struct
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **optional.Int32**| Page number. Defaults to 1. | 

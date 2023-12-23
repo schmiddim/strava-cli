@@ -1,4 +1,4 @@
-# {{classname}}
+# \ActivitiesApi
 
 All URIs are relative to *https://www.strava.com/api/v3*
 
@@ -13,8 +13,9 @@ Method | HTTP request | Description
 [**GetZonesByActivityId**](ActivitiesApi.md#GetZonesByActivityId) | **Get** /activities/{id}/zones | Get Activity Zones
 [**UpdateActivityById**](ActivitiesApi.md#UpdateActivityById) | **Put** /activities/{id} | Update Activity
 
+
 # **CreateActivity**
-> DetailedActivity CreateActivity(ctx, name, type_, sportType, startDateLocal, elapsedTime, description, distance, trainer, commute)
+> DetailedActivity CreateActivity(ctx, name, sportType, startDateLocal, elapsedTime, optional)
 Create an Activity
 
 Creates a manual activity for an athlete, requires activity:write scope.
@@ -24,15 +25,26 @@ Creates a manual activity for an athlete, requires activity:write scope.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **name** | **string**|  | 
-  **type_** | **string**|  | 
-  **sportType** | **string**|  | 
-  **startDateLocal** | **time.Time**|  | 
-  **elapsedTime** | **int32**|  | 
-  **description** | **string**|  | 
-  **distance** | **float32**|  | 
-  **trainer** | **int32**|  | 
-  **commute** | **int32**|  | 
+  **name** | **string**| The name of the activity. | 
+  **sportType** | **string**| Sport type of activity. For example - Run, MountainBikeRide, Ride, etc. | 
+  **startDateLocal** | **time.Time**| ISO 8601 formatted date time. | 
+  **elapsedTime** | **int32**| In seconds. | 
+ **optional** | ***ActivitiesApiCreateActivityOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ActivitiesApiCreateActivityOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+
+ **type_** | **optional.String**| Type of activity. For example - Run, Ride etc. | 
+ **description** | **optional.String**| Description of the activity. | 
+ **distance** | **optional.Float32**| In meters. | 
+ **trainer** | **optional.Int32**| Set to 1 to mark as a trainer activity. | 
+ **commute** | **optional.Int32**| Set to 1 to mark as commute. | 
 
 ### Return type
 
@@ -44,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: multipart/form-data
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -65,6 +77,7 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ActivitiesApiGetActivityByIdOpts struct
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
@@ -101,6 +114,7 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ActivitiesApiGetCommentsByActivityIdOpts struct
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
@@ -140,6 +154,7 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ActivitiesApiGetKudoersByActivityIdOpts struct
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
@@ -204,6 +219,7 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ActivitiesApiGetLoggedInAthleteActivitiesOpts struct
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **before** | **optional.Int32**| An epoch timestamp to use for filtering activities that have taken place before a certain time. | 
@@ -270,6 +286,7 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a ActivitiesApiUpdateActivityByIdOpts struct
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
@@ -285,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

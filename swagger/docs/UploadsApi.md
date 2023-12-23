@@ -1,4 +1,4 @@
-# {{classname}}
+# \UploadsApi
 
 All URIs are relative to *https://www.strava.com/api/v3*
 
@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateUpload**](UploadsApi.md#CreateUpload) | **Post** /uploads | Upload Activity
 [**GetUploadById**](UploadsApi.md#GetUploadById) | **Get** /uploads/{uploadId} | Get Upload
+
 
 # **CreateUpload**
 > Upload CreateUpload(ctx, optional)
@@ -22,15 +23,16 @@ Name | Type | Description  | Notes
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a UploadsApiCreateUploadOpts struct
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **file** | **optional.Interface of *os.File****optional.**|  | 
- **name** | **optional.**|  | 
- **description** | **optional.**|  | 
- **trainer** | **optional.**|  | 
- **commute** | **optional.**|  | 
- **dataType** | **optional.**|  | 
- **externalId** | **optional.**|  | 
+ **file** | **optional.Interface of *os.File**| The uploaded file. | 
+ **name** | **optional.String**| The desired name of the resulting activity. | 
+ **description** | **optional.String**| The desired description of the resulting activity. | 
+ **trainer** | **optional.String**| Whether the resulting activity should be marked as having been performed on a trainer. | 
+ **commute** | **optional.String**| Whether the resulting activity should be tagged as a commute. | 
+ **dataType** | **optional.String**| The format of the uploaded file. | 
+ **externalId** | **optional.String**| The desired external identifier of the resulting activity. | 
 
 ### Return type
 
