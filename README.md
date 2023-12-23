@@ -37,13 +37,13 @@ strava-cli list segment-effort --id 631238
 To Mac
 
 ```sh
-make completion-mac
+task completion-mac
 ```
 
 To Linux
 
 ```sh
-make completion-linux
+task completion-linux
 ```
 
 ### To generate code to talk to Strava API
