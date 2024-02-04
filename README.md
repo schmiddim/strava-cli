@@ -57,3 +57,7 @@ git checkout master
 rm -rf ../strava-cli/swagger
 mv generated/go ../strava-cli/swagger
 ```
+
+## Links
+
+- [Strava API Brand Guidelines](https://developers.strava.com/guidelines/)
