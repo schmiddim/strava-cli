@@ -10,14 +10,9 @@ import (
 )
 
 const port = 9990
-const apiURL = "https://www.strava.com"
-
-type loginOptions struct {
-}
 
 var (
-	ctx       context.Context
-	loginOpts loginOptions
+	ctx context.Context
 )
 
 // loginCmd represents the login command
@@ -43,8 +38,8 @@ func runLogin(_ *cobra.Command, _ []string) error {
 		return err
 	}
 
-	authhelper.SaveTokenToViper(token)
-	viper.WriteConfig()
+	_ = authhelper.SaveTokenToViper(token)
+	_ = viper.WriteConfig()
 	fmt.Printf("Login has been completed successfully. Tokens are stored in [%s]\n", viper.ConfigFileUsed())
 
 	return nil

@@ -28,6 +28,10 @@ tasks:
     - task coverage-html
     - open coverage.html
 
+  lint:
+    desc: Lint
+    cmd: golangci-lint run
+
   completion-mac:
     desc: Generate bash completion and save to homebrew
     cmd: strava-cli completion bash > /opt/homebrew/etc/bash_completion.d/strava-cli

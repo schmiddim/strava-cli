@@ -30,7 +30,7 @@ func init() {
 
 	flags := editActivityCmd.Flags()
 	flags.Int64Var(&editActivityOpts.id, "id", 0, "Activity ID")
-	editActivityCmd.MarkFlagRequired("id")
+	_ = editActivityCmd.MarkFlagRequired("id")
 }
 
 func runEditActivities(_ *cobra.Command, _ []string) error {
@@ -54,7 +54,7 @@ func runEditActivities(_ *cobra.Command, _ []string) error {
 	updatedModel, err := p.Run()
 	if err != nil {
 		return err
-    }
+	}
 	updatedEditorModel := updatedModel.(ui.EditorModel)
 	if !updatedEditorModel.HasUpdate() {
 		fmt.Println("No update made")
@@ -86,5 +86,3 @@ func runEditActivities(_ *cobra.Command, _ []string) error {
 
 	return nil
 }
-
-

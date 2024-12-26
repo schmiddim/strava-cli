@@ -22,7 +22,7 @@ var rootCmd = &cobra.Command{
 }
 
 func Execute() {
-	rootCmd.Execute()
+	_ = rootCmd.Execute()
 }
 
 func init() {
@@ -57,7 +57,7 @@ func validateToken(cmd *cobra.Command, _ []string) error {
 		if err != nil {
 			return fmt.Errorf("invalid token. please login again: %v", err)
 		}
-		authhelper.SaveTokenToViper(newToken)
+		_ = authhelper.SaveTokenToViper(newToken)
 		return nil
 	}
 

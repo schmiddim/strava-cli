@@ -32,7 +32,7 @@ func init() {
 
 	flags := listSegmentEffortCmd.Flags()
 	flags.Int32Var(&listSegmentEffortOpts.id, "id", 0, "Segment ID")
-	listSegmentEffortCmd.MarkFlagRequired("id")
+	_ = listSegmentEffortCmd.MarkFlagRequired("id")
 }
 
 func runListSegmentEfforts(_ *cobra.Command, _ []string) error {
@@ -46,15 +46,15 @@ func runListSegmentEfforts(_ *cobra.Command, _ []string) error {
 
 	opts := &swagger.SegmentEffortsApiGetEffortsBySegmentIdOpts{
 		StartDateLocal: optional.NewTime(time.Date(2022, 1, 1, 0, 0, 0, 0, time.UTC)),
-		EndDateLocal: optional.NewTime(time.Now()),
-		PerPage: optional.NewInt32(100),
+		EndDateLocal:   optional.NewTime(time.Now()),
+		PerPage:        optional.NewInt32(100),
 	}
 	efforts, _, err := client.SegmentEffortsApi.GetEffortsBySegmentId(auth, listSegmentEffortOpts.id, opts)
 	if err != nil {
 		return err
 	}
 
-	if (listOpts.format == "json") {
+	if listOpts.format == "json" {
 		json, err := jsonhelper.GetJSONString(efforts)
 		if err != nil {
 			return err

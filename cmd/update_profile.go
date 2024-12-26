@@ -22,13 +22,12 @@ type updateProfileOptions struct {
 
 var updateProfileOpts updateProfileOptions
 
-
 func init() {
 	updateCmd.AddCommand(updateProfileCmd)
 
 	flags := updateProfileCmd.Flags()
 	flags.Float32VarP(&updateProfileOpts.weight, "weight", "w", 0, "Weight in kg")
-	updateProfileCmd.MarkFlagRequired("weight")
+	_ = updateProfileCmd.MarkFlagRequired("weight")
 }
 
 func runUpdateProfile(_ *cobra.Command, _ []string) error {
