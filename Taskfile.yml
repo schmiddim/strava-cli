@@ -32,6 +32,10 @@ tasks:
     desc: Lint
     cmd: golangci-lint run
 
+  sec:
+    desc: Security check
+    cmd: gosec ./...
+
   completion-mac:
     desc: Generate bash completion and save to homebrew
     cmd: strava-cli completion bash > /opt/homebrew/etc/bash_completion.d/strava-cli
