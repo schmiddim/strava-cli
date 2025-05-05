@@ -42,7 +42,7 @@ func runListActivities(_ *cobra.Command, _ []string) error {
 		return err
 	}
 
-	if (listOpts.format == "json") {
+	if listOpts.format == "json" {
 		json, err := jsonhelper.GetJSONString(activities)
 		if err != nil {
 			return err

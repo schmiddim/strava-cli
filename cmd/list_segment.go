@@ -42,7 +42,7 @@ func runListSegments(_ *cobra.Command, _ []string) error {
 		return err
 	}
 
-	if (listOpts.format == "json") {
+	if listOpts.format == "json" {
 		json, err := jsonhelper.GetJSONString(segments)
 		if err != nil {
 			return err
@@ -58,8 +58,8 @@ func runListSegments(_ *cobra.Command, _ []string) error {
 			e.Country,
 			e.Name,
 			fmt.Sprintf("%.1f", e.Distance/1000.0),
-			fmt.Sprintf("%.0f", e.ElevationHigh - e.ElevationLow),
-			fmt.Sprintf("%.2f", (e.ElevationHigh - e.ElevationLow)/e.Distance*100),
+			fmt.Sprintf("%.0f", e.ElevationHigh-e.ElevationLow),
+			fmt.Sprintf("%.2f", (e.ElevationHigh-e.ElevationLow)/e.Distance*100),
 		}
 		data = append(data, arr)
 	}
